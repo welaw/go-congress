@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+message User {
+    string uid = 2;
+    string username = 3;
+    string email = 4;
+    string full_name = 5;
+    string biography = 6;
+    string upstream = 7;
+    string upstream_body = 8;
+    string picture_url = 9;
+    string provider_id = 10;
+    string name = 11;
+    bool email_private = 13;
+    repeated string roles = 14;
+    string provider = 17;
+    bool full_name_private = 21;
+    string bioguide_id = 22;
+    string lis_id = 23;
+    string found_id = 24;
+}

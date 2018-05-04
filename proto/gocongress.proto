@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package proto;
+
+service GoCongressService {
+    rpc SendVote(SendVoteRequest) returns (SendVoteReply) {}
+    rpc SendLaw(SendLawRequest) returns (SendLawReply) {}
+    rpc Status(StatusRequest) returns (StatusReply) {}
+}
+
+message Upstream {
+    string name = 1;
+    string description = 2;
+    string body_name = 3;
+    string body_description = 4;
+    string body_url = 5;
+    string body_email = 6;
+}
+
+message ItemRange {
+    string ident = 1;
+    string username = 2;
+    string start_date = 3;
+    string end_date = 4;
+    int32 limit = 5;
+}
+
+message SendLawRequest {
+    ItemRange item_range = 1;
+}
+
+message SendLawReply {
+    repeated string new_items = 1;
+    repeated string updated = 2;
+    string err = 3;
+}
+
+message SendVoteRequest {
+    ItemRange item_range = 1;
+}
+
+message SendVoteReply {
+    repeated string new_items = 1;
+    repeated string updated = 2;
+    string err = 3;
+}
+
+message StatusRequest {
+    ItemRange item_range = 1;
+}
+
+message StatusReply {
+    repeated string new_items = 1;
+    repeated string existing = 2;
+    string err = 3;
+}
+
+message UpdateRequest {
+    Upstream upstream = 1;
+    string err = 2;
+}
+
+message UpdateReply {
+    string err = 1;
+}

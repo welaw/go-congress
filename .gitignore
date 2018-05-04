@@ -1,0 +1,9 @@
+# Environments
+*.env
+_environments/
+
+# Dev
+.files/
+
+# gcloud
+app.yaml
